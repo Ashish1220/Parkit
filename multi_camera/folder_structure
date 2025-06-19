@@ -1,0 +1,16 @@
+--cameras/
+    └── camera1/
+        ├── config.json
+        ├── slot_regions.json
+        └── logs/
+            ├── timelogs.json
+            ├── nearestlogs.json
+            └── slot_states.json
+     -- create_new_camera.py
+-- static_detection_images
+    |- camera1.jpg/jpeg..
+-- static_marking_images
+    |- camera1.jpg/jpeg..
+--main.py PART 2    
+--mark_sots.py PART 1
+--multi_instance_launch.py PART 2

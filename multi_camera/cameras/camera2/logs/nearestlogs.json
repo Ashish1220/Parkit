@@ -1,0 +1,14 @@
+[
+    {
+        "slot": "Slot 1",
+        "closest_entry": "Entry 1",
+        "distance": 512.4,
+        "timestamp": "2025-06-19T23:32:40.267078"
+    },
+    {
+        "slot": "Slot 1",
+        "closest_entry": "Entry 1",
+        "distance": 512.4,
+        "timestamp": "2025-06-19T23:35:06.415823"
+    }
+]

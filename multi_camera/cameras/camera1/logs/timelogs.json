@@ -1,0 +1,156 @@
+[
+    {
+        "slot": "Slot 1",
+        "new_status": "Empty",
+        "previous_status": "Unknown",
+        "timestamp": "2025-06-19T22:21:24.256647",
+        "duration_since_last_change": 0.0
+    },
+    {
+        "slot": "Slot 2",
+        "new_status": "Occupied",
+        "previous_status": "Unknown",
+        "timestamp": "2025-06-19T22:21:24.262156",
+        "duration_since_last_change": 0.0
+    },
+    {
+        "slot": "Slot 3",
+        "new_status": "Occupied",
+        "previous_status": "Unknown",
+        "timestamp": "2025-06-19T22:21:24.270159",
+        "duration_since_last_change": 0.0
+    },
+    {
+        "slot": "Slot 4",
+        "new_status": "Occupied",
+        "previous_status": "Unknown",
+        "timestamp": "2025-06-19T22:21:24.273157",
+        "duration_since_last_change": 0.0
+    },
+    {
+        "slot": "Slot 5",
+        "new_status": "Empty",
+        "previous_status": "Unknown",
+        "timestamp": "2025-06-19T22:21:24.286159",
+        "duration_since_last_change": 0.0
+    },
+    {
+        "slot": "Slot 6",
+        "new_status": "Occupied",
+        "previous_status": "Unknown",
+        "timestamp": "2025-06-19T22:21:24.293161",
+        "duration_since_last_change": 0.0
+    },
+    {
+        "slot": "Slot 7",
+        "new_status": "Occupied",
+        "previous_status": "Unknown",
+        "timestamp": "2025-06-19T22:21:24.294161",
+        "duration_since_last_change": 0.0
+    },
+    {
+        "slot": "Slot 2",
+        "new_status": "Empty",
+        "previous_status": "Occupied",
+        "timestamp": "2025-06-19T22:21:44.943679",
+        "duration_since_last_change": 20.68
+    },
+    {
+        "slot": "Slot 3",
+        "new_status": "Empty",
+        "previous_status": "Occupied",
+        "timestamp": "2025-06-19T22:21:44.943679",
+        "duration_since_last_change": 20.67
+    },
+    {
+        "slot": "Slot 4",
+        "new_status": "Empty",
+        "previous_status": "Occupied",
+        "timestamp": "2025-06-19T22:21:44.943679",
+        "duration_since_last_change": 20.67
+    },
+    {
+        "slot": "Slot 6",
+        "new_status": "Empty",
+        "previous_status": "Occupied",
+        "timestamp": "2025-06-19T22:21:44.943679",
+        "duration_since_last_change": 20.65
+    },
+    {
+        "slot": "Slot 7",
+        "new_status": "Empty",
+        "previous_status": "Occupied",
+        "timestamp": "2025-06-19T22:21:44.943679",
+        "duration_since_last_change": 20.65
+    },
+    {
+        "slot": "Slot 2",
+        "new_status": "Occupied",
+        "previous_status": "Empty",
+        "timestamp": "2025-06-19T22:42:20.636311",
+        "duration_since_last_change": 1235.69
+    },
+    {
+        "slot": "Slot 3",
+        "new_status": "Occupied",
+        "previous_status": "Empty",
+        "timestamp": "2025-06-19T22:42:20.643380",
+        "duration_since_last_change": 1235.7
+    },
+    {
+        "slot": "Slot 4",
+        "new_status": "Occupied",
+        "previous_status": "Empty",
+        "timestamp": "2025-06-19T22:42:20.646406",
+        "duration_since_last_change": 1235.7
+    },
+    {
+        "slot": "Slot 6",
+        "new_status": "Occupied",
+        "previous_status": "Empty",
+        "timestamp": "2025-06-19T22:42:20.668129",
+        "duration_since_last_change": 1235.72
+    },
+    {
+        "slot": "Slot 7",
+        "new_status": "Occupied",
+        "previous_status": "Empty",
+        "timestamp": "2025-06-19T22:42:20.670133",
+        "duration_since_last_change": 1235.73
+    },
+    {
+        "slot": "Slot 2",
+        "new_status": "Empty",
+        "previous_status": "Occupied",
+        "timestamp": "2025-06-19T23:36:35.431679",
+        "duration_since_last_change": 3254.8
+    },
+    {
+        "slot": "Slot 3",
+        "new_status": "Empty",
+        "previous_status": "Occupied",
+        "timestamp": "2025-06-19T23:36:35.431679",
+        "duration_since_last_change": 3254.79
+    },
+    {
+        "slot": "Slot 4",
+        "new_status": "Empty",
+        "previous_status": "Occupied",
+        "timestamp": "2025-06-19T23:36:35.431679",
+        "duration_since_last_change": 3254.79
+    },
+    {
+        "slot": "Slot 6",
+        "new_status": "Empty",
+        "previous_status": "Occupied",
+        "timestamp": "2025-06-19T23:36:35.431679",
+        "duration_since_last_change": 3254.76
+    },
+    {
+        "slot": "Slot 7",
+        "new_status": "Empty",
+        "previous_status": "Occupied",
+        "timestamp": "2025-06-19T23:36:35.431679",
+        "duration_since_last_change": 3254.76
+    }
+]
