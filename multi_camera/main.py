@@ -5,12 +5,14 @@ import os
 from datetime import datetime
 from ultralytics import YOLO
 import argparse
+from collections import defaultdict
+
 
 # --------------------------- Config ---------------------------
 YOLO_MODEL_PATH = "yolov8x.pt"
 IOU_THRESHOLD = 0.55
-VIDEO_SOURCE = 0  # webcam index, video path, or RTSP URL
-
+VIDEO_SOURCE = 0  
+debug=True
 # --------------------------- Argument Parsing ---------------------------
 def parse_args():
     
@@ -59,6 +61,15 @@ def centroid_of_polygon(polygon):
     if M["m00"] != 0:
         return int(M["m10"] / M["m00"]), int(M["m01"] / M["m00"])
     return tuple(polygon[0])
+
+def build_segment_lookup(mapping_path="cameras/segment_mapping.json"):
+    mapping = load_json(mapping_path)
+    lookup = {}
+    for segment_id, camera_list in mapping.items():
+        for cam in camera_list:
+            lookup[cam] = segment_id
+    return lookup
+
 
 # --------------------------- Slot Status Update ---------------------------
 def update_slot_log(logs, states, slot_name, current_status):
@@ -117,31 +128,69 @@ def rank_slots(empty_centroids, entries):
         ranking.append({
             "slot": slot_name,
             "closest_entry": closest_entry,
-            "distance": round(closest_dist, 1),
+            "distance": str(round(closest_dist, 1)),
             "timestamp": datetime.now().isoformat()
         })
     return sorted(ranking, key=lambda x: x["distance"])
 
+#--------------------------- Debugging Function --------------------------
+def debugger(var_name,param):
+    if(debug):
+        print(f"\nvalue of {var_name} is : {param}\n") 
+
 # --------------------------- Processing ---------------------------
-def process_frame(frame, model, slots, entries, logs, nearest_logs, slot_states):
+def process_frame(frame, model, slots, entries, logs, nearest_logs, slot_states, segment_lookup, camera_name):
     results = model(frame)
     car_boxes = results[0].boxes.xyxy.cpu().numpy()
+    car_scores = results[0].boxes.conf.cpu().numpy()
     occupied_status = {}
 
     for slot in slots:
         name = slot["name"]
         coords = slot["coords"]
-        occupied = any(
-            box_polygon_iou(car_box, coords, frame.shape[:2]) > IOU_THRESHOLD
-            for car_box in car_boxes
-        )
+        global_id = slot.get("global_id")
+        max_iou = 0
+        best_confidence = 0
+
+        for car_box, conf in zip(car_boxes, car_scores):
+            iou = box_polygon_iou(car_box, coords, frame.shape[:2])
+            if iou > max_iou:
+                max_iou = iou
+                best_confidence = conf
+
+        occupied = max_iou > IOU_THRESHOLD
         occupied_status[name] = occupied
         status = "Occupied" if occupied else "Empty"
         logs, slot_states = update_slot_log(logs, slot_states, name, status)
 
+        if global_id:
+            segment_id = segment_lookup.get(camera_name, "unknown_segment")
+            write_confidence_vote(segment_id, global_id, camera_name, status, float(round(best_confidence, 2)))
+
     frame, centroids, _ = draw_annotations(frame, slots, entries, occupied_status)
     ranking = rank_slots(centroids, entries)
     return frame, ranking, logs, slot_states, nearest_logs + ranking
+
+# --------------------------------------- Raw Voting -----------------------
+def write_confidence_vote(segment_id, slot_id, camera_name, status, confidence):
+    raw_vote_path = os.path.join("cameras", "SEGMENTATION_LOGS", segment_id, "raw_votes.json")
+    os.makedirs(os.path.dirname(raw_vote_path), exist_ok=True)
+
+    vote = {
+        "slot_id": slot_id,
+        "camera": camera_name,
+        "status": status,
+        "confidence": confidence,
+        "timestamp": datetime.now().isoformat()
+    }
+
+    # Append to raw_votes.json
+    existing_votes = load_json(raw_vote_path)
+    if not isinstance(existing_votes, list):
+        existing_votes = []
+    existing_votes.append(vote)
+    save_json(raw_vote_path, existing_votes)
+
 
 # --------------------------- Main ---------------------------
 def main(LIVE_FEED=False, camera_name="camera1",format="jpg"):
@@ -176,7 +225,13 @@ def main(LIVE_FEED=False, camera_name="camera1",format="jpg"):
             ret, frame = cap.read()
             if not ret:
                 break
-            frame, ranking, logs, slot_states, nearest_logs = process_frame(frame, model, slots, entries, logs, nearest_logs, slot_states)
+            segment_mapping = load_json(os.path.join("cameras", "segment_mapping.json"))
+            segment_lookup = build_segment_lookup('cameras/segment_mapping.json')
+            for seg, cams in segment_mapping.items():
+                for cam in cams:
+                    segment_lookup[cam] = seg
+
+            frame, ranking, logs, slot_states, nearest_logs = process_frame(frame, model, slots, entries, logs, nearest_logs, slot_states, segment_lookup, camera_name)
             save_json(timelog_path, logs)
             save_json(slotstate_path, slot_states)
             save_json(nearestlog_path, nearest_logs)
@@ -186,8 +241,13 @@ def main(LIVE_FEED=False, camera_name="camera1",format="jpg"):
         cap.release()
         cv2.destroyAllWindows()
     else:
-        frame = cv2.imread(image_path)
-        frame, ranking, logs, slot_states, nearest_logs = process_frame(frame, model, slots, entries, logs, nearest_logs, slot_states)
+        frame = cv2.imread(image_path)        
+        segment_mapping = load_json(os.path.join("cameras", "segment_mapping.json"))
+        segment_lookup = build_segment_lookup('cameras/segment_mapping.json')
+        for seg, cams in segment_mapping.items():
+            for cam in cams:
+                segment_lookup[cam] = seg
+        frame, ranking, logs, slot_states, nearest_logs = process_frame(frame, model, slots, entries, logs, nearest_logs, slot_states, segment_lookup, camera_name)
         save_json(timelog_path, logs)
         save_json(slotstate_path, slot_states)
         save_json(nearestlog_path, nearest_logs)
@@ -202,5 +262,10 @@ def main(LIVE_FEED=False, camera_name="camera1",format="jpg"):
 
 # --------------------------- Entry Point ---------------------------
 if __name__ == "__main__":
+
+    
+
+    
     args = parse_args()
+    debugger("camera activated" ,args.camera)
     main(LIVE_FEED=args.live, camera_name=args.camera,format=args.format)

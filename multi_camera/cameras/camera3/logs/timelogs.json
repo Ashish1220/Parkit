@@ -1,1 +1,30 @@
-[]
+[
+    {
+        "slot": "Slot 1",
+        "new_status": "Empty",
+        "previous_status": "Unknown",
+        "timestamp": "2025-06-25T19:08:25.177877",
+        "duration_since_last_change": 0.0
+    },
+    {
+        "slot": "Slot 2",
+        "new_status": "Occupied",
+        "previous_status": "Unknown",
+        "timestamp": "2025-06-25T19:08:25.265418",
+        "duration_since_last_change": 0.0
+    },
+    {
+        "slot": "Slot 3",
+        "new_status": "Occupied",
+        "previous_status": "Unknown",
+        "timestamp": "2025-06-25T19:08:25.318945",
+        "duration_since_last_change": 0.0
+    },
+    {
+        "slot": "Slot 4",
+        "new_status": "Occupied",
+        "previous_status": "Unknown",
+        "timestamp": "2025-06-25T19:08:25.377239",
+        "duration_since_last_change": 0.0
+    }
+]

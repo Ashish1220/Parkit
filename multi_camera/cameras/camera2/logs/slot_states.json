@@ -1,18 +1,30 @@
 {
     "Slot 1": {
-        "status": "Empty",
-        "timestamp": "2025-06-19T23:32:40.256261"
+        "status": "Occupied",
+        "timestamp": "2025-06-25T19:08:24.243841"
     },
     "Slot 2": {
         "status": "Occupied",
-        "timestamp": "2025-06-19T23:32:40.263782"
+        "timestamp": "2025-06-25T18:48:23.971746"
     },
     "Slot 3": {
         "status": "Occupied",
-        "timestamp": "2025-06-19T23:32:40.267078"
+        "timestamp": "2025-06-25T19:08:24.397971"
     },
     "Slot 4": {
+        "status": "Empty",
+        "timestamp": "2025-06-25T19:08:24.465003"
+    },
+    "Slot 5": {
         "status": "Occupied",
-        "timestamp": "2025-06-19T23:35:06.414816"
+        "timestamp": "2025-06-25T19:08:24.513535"
+    },
+    "Slot 6": {
+        "status": "Occupied",
+        "timestamp": "2025-06-25T19:08:24.565560"
+    },
+    "Slot 7": {
+        "status": "Occupied",
+        "timestamp": "2025-06-25T19:08:24.628090"
     }
 }

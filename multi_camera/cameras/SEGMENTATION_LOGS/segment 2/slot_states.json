@@ -1,0 +1,42 @@
+{
+    "1": {
+        "status": "Occupied",
+        "timestamp": "2025-06-30T23:10:59.554178"
+    },
+    "2": {
+        "status": "Occupied",
+        "timestamp": "2025-06-30T23:10:59.554178"
+    },
+    "camera1.Slot 3": {
+        "status": "Empty",
+        "timestamp": "2025-06-30T23:34:01.918966"
+    },
+    "camera1.Slot 4": {
+        "status": "Empty",
+        "timestamp": "2025-06-30T23:34:01.918966"
+    },
+    "camera1.Slot 5": {
+        "status": "Occupied",
+        "timestamp": "2025-06-30T23:34:01.918966"
+    },
+    "camera2.Slot 3": {
+        "status": "Occupied",
+        "timestamp": "2025-06-30T23:34:01.918966"
+    },
+    "camera2.Slot 4": {
+        "status": "Empty",
+        "timestamp": "2025-06-30T23:34:01.918966"
+    },
+    "camera2.Slot 5": {
+        "status": "Occupied",
+        "timestamp": "2025-06-30T23:34:01.918966"
+    },
+    "camera2.Slot 6": {
+        "status": "Occupied",
+        "timestamp": "2025-06-30T23:34:01.918966"
+    },
+    "camera2.Slot 7": {
+        "status": "Occupied",
+        "timestamp": "2025-06-30T23:34:01.918966"
+    }
+}

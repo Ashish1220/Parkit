@@ -1,0 +1,13 @@
+{
+    "segment 1": [
+        "camera3",
+        "camera4"
+    ],
+    "segment 2": [
+        "camera1",
+        "camera2"
+    ],
+    "segment 3": [
+        "camera7"
+    ]
+}

@@ -1,0 +1,72 @@
+[
+    {
+        "slot": "1",
+        "previous_status": "Unknown",
+        "new_status": "Occupied",
+        "timestamp": "2025-06-30T23:10:59.554178",
+        "duration_since_last_change": 0.0
+    },
+    {
+        "slot": "2",
+        "previous_status": "Unknown",
+        "new_status": "Occupied",
+        "timestamp": "2025-06-30T23:10:59.554178",
+        "duration_since_last_change": 0.0
+    },
+    {
+        "slot": "camera1.Slot 3",
+        "previous_status": "Unknown",
+        "new_status": "Empty",
+        "timestamp": "2025-06-30T23:10:59.554178",
+        "duration_since_last_change": 0.0
+    },
+    {
+        "slot": "camera1.Slot 4",
+        "previous_status": "Unknown",
+        "new_status": "Empty",
+        "timestamp": "2025-06-30T23:10:59.554178",
+        "duration_since_last_change": 0.0
+    },
+    {
+        "slot": "camera1.Slot 5",
+        "previous_status": "Unknown",
+        "new_status": "Occupied",
+        "timestamp": "2025-06-30T23:10:59.554178",
+        "duration_since_last_change": 0.0
+    },
+    {
+        "slot": "camera2.Slot 3",
+        "previous_status": "Unknown",
+        "new_status": "Occupied",
+        "timestamp": "2025-06-30T23:10:59.554178",
+        "duration_since_last_change": 0.01
+    },
+    {
+        "slot": "camera2.Slot 4",
+        "previous_status": "Unknown",
+        "new_status": "Empty",
+        "timestamp": "2025-06-30T23:10:59.554178",
+        "duration_since_last_change": 0.01
+    },
+    {
+        "slot": "camera2.Slot 5",
+        "previous_status": "Unknown",
+        "new_status": "Occupied",
+        "timestamp": "2025-06-30T23:10:59.554178",
+        "duration_since_last_change": 0.01
+    },
+    {
+        "slot": "camera2.Slot 6",
+        "previous_status": "Unknown",
+        "new_status": "Occupied",
+        "timestamp": "2025-06-30T23:10:59.554178",
+        "duration_since_last_change": 0.01
+    },
+    {
+        "slot": "camera2.Slot 7",
+        "previous_status": "Unknown",
+        "new_status": "Occupied",
+        "timestamp": "2025-06-30T23:10:59.554178",
+        "duration_since_last_change": 0.01
+    }
+]

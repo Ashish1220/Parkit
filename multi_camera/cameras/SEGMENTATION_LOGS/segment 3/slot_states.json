@@ -1,9 +1,9 @@
 {
-    "Slot 1": {
+    "camera7.Slot 1": {
         "status": "Occupied",
         "timestamp": "2025-06-25T19:08:25.148865"
     },
-    "Slot 2": {
+    "camera7.Slot 2": {
         "status": "Occupied",
         "timestamp": "2025-06-25T19:08:25.167880"
     }

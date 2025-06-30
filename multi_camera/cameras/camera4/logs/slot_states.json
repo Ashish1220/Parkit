@@ -1,1 +1,22 @@
-{}
+{
+    "Slot 1": {
+        "status": "Empty",
+        "timestamp": "2025-06-25T19:08:24.241840"
+    },
+    "Slot 2": {
+        "status": "Occupied",
+        "timestamp": "2025-06-25T19:08:24.282364"
+    },
+    "Slot 3": {
+        "status": "Empty",
+        "timestamp": "2025-06-25T19:08:24.320372"
+    },
+    "Slot 4": {
+        "status": "Occupied",
+        "timestamp": "2025-06-25T19:08:24.369396"
+    },
+    "Slot 5": {
+        "status": "Occupied",
+        "timestamp": "2025-06-25T19:08:24.415977"
+    }
+}

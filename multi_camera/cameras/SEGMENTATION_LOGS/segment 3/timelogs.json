@@ -1,13 +1,13 @@
 [
     {
-        "slot": "Slot 1",
+        "slot": "camera7.Slot 1",
         "new_status": "Occupied",
         "previous_status": "Unknown",
         "timestamp": "2025-06-25T19:08:25.148865",
         "duration_since_last_change": 0.0
     },
     {
-        "slot": "Slot 2",
+        "slot": "camera7.Slot 2",
         "new_status": "Occupied",
         "previous_status": "Unknown",
         "timestamp": "2025-06-25T19:08:25.167880",

@@ -1,0 +1,23 @@
+{
+    "segment 1": {
+        "segment 2": 9.0,
+        "segment 3": 9.0,
+        "EXIT": 1.0
+    },
+    "segment 2": {
+        "segment 1": 9.0,
+        "segment 3": 9.0,
+        "EXIT": 2.0
+    },
+    "segment 3": {
+        "segment 1": 9.0,
+        "segment 2": 9.0,
+        "EXIT": 3.0
+    },
+    "ENTRY": {
+        "segment 1": 5.0,
+        "segment 2": 3.0,
+        "segment 3": 6.0
+    },
+    "EXIT": {}
+}

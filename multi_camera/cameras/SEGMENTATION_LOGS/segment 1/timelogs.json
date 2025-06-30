@@ -1,0 +1,58 @@
+[
+    {
+        "slot": "3",
+        "previous_status": "Unknown",
+        "new_status": "Empty",
+        "timestamp": "2025-06-30T23:10:59.529295",
+        "duration_since_last_change": 0.0
+    },
+    {
+        "slot": "camera3.Slot 2",
+        "previous_status": "Unknown",
+        "new_status": "Occupied",
+        "timestamp": "2025-06-30T23:10:59.529295",
+        "duration_since_last_change": 0.0
+    },
+    {
+        "slot": "camera3.Slot 3",
+        "previous_status": "Unknown",
+        "new_status": "Occupied",
+        "timestamp": "2025-06-30T23:10:59.529295",
+        "duration_since_last_change": 0.0
+    },
+    {
+        "slot": "camera3.Slot 4",
+        "previous_status": "Unknown",
+        "new_status": "Occupied",
+        "timestamp": "2025-06-30T23:10:59.529295",
+        "duration_since_last_change": 0.0
+    },
+    {
+        "slot": "camera4.Slot 2",
+        "previous_status": "Unknown",
+        "new_status": "Occupied",
+        "timestamp": "2025-06-30T23:10:59.529295",
+        "duration_since_last_change": 0.01
+    },
+    {
+        "slot": "camera4.Slot 3",
+        "previous_status": "Unknown",
+        "new_status": "Empty",
+        "timestamp": "2025-06-30T23:10:59.529295",
+        "duration_since_last_change": 0.01
+    },
+    {
+        "slot": "camera4.Slot 4",
+        "previous_status": "Unknown",
+        "new_status": "Occupied",
+        "timestamp": "2025-06-30T23:10:59.529295",
+        "duration_since_last_change": 0.01
+    },
+    {
+        "slot": "camera4.Slot 5",
+        "previous_status": "Unknown",
+        "new_status": "Occupied",
+        "timestamp": "2025-06-30T23:10:59.529295",
+        "duration_since_last_change": 0.01
+    }
+]

@@ -3,7 +3,6 @@ import json
 import numpy as np
 import os
 import argparse
-
 # -------------------- Parse Arguments --------------------
 parser = argparse.ArgumentParser(description="Mark Parking Slots for a Camera")
 parser.add_argument("--camera", type=str, default="camera1", help="Camera name (e.g., camera1)")
@@ -70,9 +69,11 @@ def draw(event, x, y, flags, param):
             current_slot.append([x, y])
             if len(current_slot) == 4:
                 slot_count += 1
+                global_id = input(f"🔗 Enter Global ID for Slot {slot_count} (or press Enter to skip): ").strip()
                 slots.append({
                     "name": f"Slot {slot_count}",
-                    "coords": current_slot.copy()
+                    "coords": current_slot.copy(),
+                    "global_id": global_id if global_id else None
                 })
                 current_slot = []
                 redraw_image()
