@@ -1,0 +1,55 @@
+{
+  "entry": { "latitude": 30.3530, "longitude": 76.3620 },
+  "exit": { "latitude": 30.3545, "longitude": 76.3620 },
+  "slots": [
+    { "id": "slot_1", "latitude": 30.3537, "longitude": 76.3625 },
+    { "id": "slot_2", "latitude": 30.3537, "longitude": 76.3627 },
+    { "id": "slot_3", "latitude": 30.3539, "longitude": 76.3625 },
+    { "id": "slot_4", "latitude": 30.3539, "longitude": 76.3627 },
+    { "id": "slot_5", "latitude": 30.3541, "longitude": 76.3625 },
+    { "id": "slot_6", "latitude": 30.3541, "longitude": 76.3627 }
+  ],
+  "cameras": [
+    { "id": "camera_1", "latitude": 30.3533, "longitude": 76.3624 },
+    { "id": "camera_2", "latitude": 30.3538, "longitude": 76.3629 }
+  ],
+  "paths": [
+    {
+      "path_name": "1",
+      "longitude_latitude": [
+        { "longitude": 76.3620, "latitude": 30.3530 },
+        { "longitude": 76.3620, "latitude": 30.3535 },
+        { "longitude": 76.3623, "latitude": 30.3535 }
+
+      ]
+    },
+    {
+      "path_name": "2",
+      "longitude_latitude": [
+        { "longitude": 76.3623, "latitude": 30.3535 },
+        { "longitude": 76.3623, "latitude": 30.3537 },
+        { "longitude": 76.3623, "latitude": 30.3539 }
+
+      ]
+    },
+    {
+  "path_name": "3",
+  "longitude_latitude": [
+    { "longitude": 76.3623, "latitude": 30.3539 },
+    { "longitude": 76.3620, "latitude": 30.3539 },
+    { "longitude": 76.3620, "latitude": 30.3545 }
+  ]
+}
+,
+    {
+      "path_name": "4",
+      "longitude_latitude": [
+        { "longitude": 76.3623, "latitude": 30.3535 },
+        { "longitude": 76.3626, "latitude": 30.3535 },
+        { "longitude": 76.3626, "latitude": 30.3539 },
+                { "longitude": 76.3626, "latitude": 30.3541 }
+
+      ]
+    }
+  ]
+}
