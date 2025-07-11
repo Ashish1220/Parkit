@@ -131,7 +131,8 @@ class ParkingGraph:
         plt.grid(True)
 
         if highlight_lat is not None and highlight_lon is not None:
-            plt.scatter(highlight_lon, highlight_lat, color='red', s=150, marker='X', label="Target Point")
+            print(f"--Marking the lat and long as {highlight_lat} || {highlight_lon}--")
+            plt.scatter(highlight_lon, highlight_lat, color='red', s=150, marker='X', label="Target Point",zorder=5)
             plt.legend()
 
         plt.show()
@@ -193,10 +194,6 @@ class ParkingGraph:
 
         directions=self.get_directions_from_path(path)
         
-        print("Path Directions:")
-        for i, direction in enumerate(directions):
-            print(f"Step {i+1}: {direction}")
-        
         if DEBUG:
             self.visualize_graph(target_lat, target_lon)
         
@@ -204,8 +201,10 @@ class ParkingGraph:
             "closest_node": closest_node,
             "distance_to_closest_node": distance,
             "shortest_path_from_entry": path,
-            "path_total_distance": total_distance
+            "path_total_distance": total_distance,
+            "directions": directions
         }
+
     def get_directions_from_path(self, path, angle_threshold=0.3):
         directions = []
         i = 1  # Start after entry node
@@ -222,7 +221,7 @@ class ParkingGraph:
                 v1_x = curr_node['longitude'] - prev_node['longitude']
                 v1_y = curr_node['latitude'] - prev_node['latitude']
                 v2_x = next_node['longitude'] - curr_node['longitude']
-                v2_y = next_node['latitude'] - curr_node['longitude']
+                v2_y = next_node['latitude'] - curr_node['latitude']  # ✅ Fixed here
 
                 angle1 = math.atan2(v1_y, v1_x)
                 angle2 = math.atan2(v2_y, v2_x)
@@ -236,15 +235,16 @@ class ParkingGraph:
                     directions.append(f"At junction {path[i]}: Turn Right")
 
             prev_node = curr_node
-            i += 1  # Move forward
+            i += 1  
 
         return directions
+            
 
 
 
 
 class ParkingLotMap:
-    def __init__(self, data):
+    def __init__(self, data=None,create_new_graph=True):
         """
         Initialize ParkingLotMap with the parking layout data.
         """
@@ -253,11 +253,13 @@ class ParkingLotMap:
         self.slots = data["slots"]
         self.cameras = data.get("cameras", [])
         self.paths = data["paths"]
-        self.graph = ParkingGraph(data)  # This will be set later after graph construction.
-        
+        if(create_new_graph):
+            self.graph = ParkingGraph(data)  # This will be set later after graph construction.
+        else:
+            self.graph = ParkingGraph()
         if(self.graph):
             print("[INFO] ParkingGraph linked to ParkingLotMap.")
-
+        self.camera_slot_distance=self.compute_camera_slot_distances()
 
     def summarize(self):
         """
@@ -306,13 +308,42 @@ class ParkingLotMap:
             "cameras": self.cameras,
             "paths": self.paths
         }
+    def compute_camera_slot_distances(self, output_file='camera_slot_distances.json'):
+        """Precompute normalized distances between cameras and slots, store to JSON."""
+        camera_distances = {}
+        for camera in self.cameras:
+            cam_lat = camera['latitude']
+            cam_lon = camera['longitude']
+            distances = {}
+            for slot in self.slots:
+                slot_id = slot['id']
+                dist = self.graph.euclidean_distance(cam_lat, cam_lon, slot['latitude'], slot['longitude'])
+                distances[slot_id] = dist
+            
+            # Normalize distances
+            min_dist = min(distances.values())
+            max_dist = max(distances.values())
+            normalized = {}
+            for slot_id, dist in distances.items():
+                if max_dist > min_dist:
+                    normalized[slot_id] = (dist - min_dist) / (max_dist - min_dist)
+                else:
+                    normalized[slot_id] = 0.0  # Avoid division by zero
+            camera_distances[camera['id']] = normalized
+        
+        # Save to JSON file
+        with open(output_file, 'w') as f:
+            json.dump(camera_distances, f, indent=2)
+        
+        print(f"[INFO] Camera-slot normalized distance matrix created and saved at '{output_file}'.")
 
-# Example usage:
+        return camera_distances
+ 
 if __name__ == "__main__":
     with open('sample_input.json') as f:
         data = json.load(f)
 
     lot_map = ParkingLotMap(data)
-    
-    res=lot_map.graph.find_closest_path(4,5)
+
+    print(lot_map.camera_slot_distance)
     
